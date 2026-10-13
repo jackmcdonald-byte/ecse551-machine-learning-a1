@@ -93,7 +93,7 @@ for permno, date_dict in loaded_data.items():
         tomorrow_day_index=all_date_roadmaps[permno][tomorrow_date]
         #get yesterday's info
         yesterday_mu=all_mu_tracks[permno][yesterday_day_index]
-        yesterday_variance=all_variance_tracks[permno][yesterday_day_index]
+        yesterday_variance=all_variance_sq_tracks[permno][yesterday_day_index]
         yesterday_vol_adj_return=all_vol_adj_return_tracks[permno][yesterday_day_index]
         yesterday_net_sentiment=loaded_data[permno][yesterday_date]["bullish"]-loaded_data[permno][yesterday_date]["bearish"]
         feature_vector=[yesterday_mu, yesterday_variance, yesterday_vol_adj_return, yesterday_net_sentiment]
