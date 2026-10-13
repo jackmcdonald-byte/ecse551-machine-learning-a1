@@ -21,7 +21,7 @@ beta1 = 0.94
 beta2 = 0.97
 small_q0= 0.000001
 all_mu_tracks = {}
-all_variance_tracks = {}
+all_variance_sq_tracks = {}
 all_vol_adj_return_tracks = {}
 all_date_roadmaps = {}
 for permno, date_dict in loaded_data.items():
@@ -61,7 +61,7 @@ for permno, date_dict in loaded_data.items():
             q_sq_list.append(q)
 
     all_mu_tracks[permno] = mu_list
-    all_variance_tracks[permno] = q_sq_list
+    all_variance_sq_tracks[permno] = q_sq_list
     all_vol_adj_return_tracks[permno] = volatility_adjusted_returns_list
     all_date_roadmaps[permno] = date_to_index_dict
 # 1. Initialize your strict Train and Test compartments
@@ -138,7 +138,7 @@ workspace_path = os.path.join(script_dir, "trained_model.pkl")
 data={
     "calendar_portfolio":calendar_portfolio,
     "all_date_roadmaps":all_date_roadmaps,
-    "all_variance_tracks":all_variance_tracks,
+    "all_variance_sq_tracks":all_variance_sq_tracks,
     "all_mu_tracks":all_mu_tracks,
     "all_vol_adj_return_tracks":all_vol_adj_return_tracks,
     "small_q0":small_q0,
